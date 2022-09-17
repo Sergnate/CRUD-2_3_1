@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.klimenko.crud231.web.Model.User;
 import ru.klimenko.crud231.web.service.UserService;
 
+
 @Controller
 public class UserController {
     private UserService userService;
@@ -16,6 +17,7 @@ public class UserController {
     public void setUserService(UserService userService) {
         this.userService = userService;
     }
+
 
     @GetMapping(value = "/")
     public String welcome() {

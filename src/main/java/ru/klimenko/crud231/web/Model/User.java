@@ -4,22 +4,26 @@ package ru.klimenko.crud231.web.Model;
 
 import javax.persistence.*;
 
-
 @Entity
 @Table(name = "users")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(nullable = false)
     private Long id;
-    @Column
+
+    @Column(name = "name")
     private String name;
-    @Column
+
+    @Column(name = "gender")
     private String gender;
 
-    @Column
+    @Column(name = "feature", unique = true)
     private String feature;
 
+    public User() {
+    }
 
     public User(String name, String gender, String feature) {
         this.name = name;
@@ -27,8 +31,12 @@ public class User {
         this.feature = feature;
     }
 
-    public User() {
+    public String getFeature() {
+        return feature;
+    }
 
+    public void setFeature(String feature) {
+        this.feature = feature;
     }
 
     public Long getId() {
@@ -38,7 +46,6 @@ public class User {
     public void setId(Long id) {
         this.id = id;
     }
-
 
     public String getName() {
         return name;
@@ -56,21 +63,10 @@ public class User {
         this.gender = gender;
     }
 
-    public String getFeature() {
-        return feature;
-    }
-
-    public void setFeature(String feature) {
-        this.feature = feature;
-    }
-
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", gender='" + gender + '\'' +
-                ", feature='" + feature + '\'' +
-                '}';
+        return String.format("ID: %d, Name: '%s', gender: '%s', feature: '%s'}", id, name, gender, feature);
     }
 }
+
+

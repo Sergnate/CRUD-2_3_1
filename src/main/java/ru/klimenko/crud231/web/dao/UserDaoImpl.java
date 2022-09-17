@@ -1,19 +1,15 @@
 package ru.klimenko.crud231.web.dao;
-
 import org.springframework.stereotype.Repository;
 import ru.klimenko.crud231.web.Model.User;
 
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.persistence.*;
 import java.util.List;
-
 
 @Repository
 public class UserDaoImpl implements UserDao {
 
-
-  @PersistenceContext
+    @PersistenceContext
     private EntityManager entityManager;
 
     protected EntityManager getEntityManager() {
@@ -48,3 +44,4 @@ public class UserDaoImpl implements UserDao {
         return getEntityManager().createQuery("From User").getResultList();
     }
 }
+
